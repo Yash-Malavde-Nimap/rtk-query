@@ -1,0 +1,26 @@
+.app-main {
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7.5rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-heading {
+  font-size: 40px;
+  color: wheat;
+}
+
+.left-desc {
+  margin-top: 20px;
+  font-size: 22px;
+  color: wheat;
+  font-weight: 100;
+  width: 80%;
+}

@@ -1,0 +1,16 @@
+.list-user {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  list-style: none;
+  gap: 10px;
+}
+
+.list-item {
+  color: wheat;
+  font-size: 22px;
+}
+
+.list-user p {
+  color: white;
+}
