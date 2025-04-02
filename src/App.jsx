@@ -1,4 +1,5 @@
 import "./App.css";
+import Count from "./components/Count.jsx";
 import Users from "./components/Users.jsx";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       <div className="right">
         {/* <p>hello world</p> */}
         <Users />
+        <Count />
       </div>
     </div>
   );

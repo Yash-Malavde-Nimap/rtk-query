@@ -4,8 +4,6 @@ import { useGetUsersQuery } from "../services/usersAPI";
 const Users = () => {
   const { data, error, isLoading } = useGetUsersQuery();
 
-  console.log(data);
-
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading users</div>;
 

@@ -1,0 +1,33 @@
+.count {
+  display: flex;
+  flex-direction: column;
+  background-color: wheat;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
+.count p {
+  font-size: 20px;
+}
+
+.count-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 0.4rem 1rem;
+  background-color: blueviolet;
+  outline: none;
+  font-size: 16px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 2px 1px 20px rgb(121, 121, 121);
+}
+
+.button:disabled{
+    background-color:rgb(153, 85, 217) ;
+}
