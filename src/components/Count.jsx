@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import "./Count.css";
 
@@ -6,7 +7,7 @@ const Count = () => {
 
   useEffect(() => {
     console.log("This should run once");
-  }, [""]);
+  }, [1]);
 
   return (
     <div className="count">

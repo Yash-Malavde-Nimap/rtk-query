@@ -1,5 +1,6 @@
 import "./App.css";
 import Count from "./components/Count.jsx";
+import Form from "./components/Form.jsx";
 import Users from "./components/Users.jsx";
 
 const App = () => {
@@ -16,8 +17,10 @@ const App = () => {
       </div>
       <div className="right">
         {/* <p>hello world</p> */}
+        <Form />
+        <p className="right-arrow">{"----->"}</p>
         <Users />
-        <Count />
+        {/* <Count /> */}
       </div>
     </div>
   );

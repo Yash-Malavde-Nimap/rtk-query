@@ -7,9 +7,34 @@
 
 .list-item {
   color: wheat;
-  font-size: 22px;
+  font-size: 18px;
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+.list-item span{
+  color: red;
+  cursor: pointer;
+}
+
+.list-item li{
+  cursor: pointer;
 }
 
 .list-user p {
   color: white;
+}
+
+.loading{
+  color: wheat;
+}
+
+.error{
+  color: red;
 }
