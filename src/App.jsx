@@ -1,9 +1,12 @@
+import { useState } from "react";
 import "./App.css";
 import Count from "./components/Count.jsx";
 import Form from "./components/Form.jsx";
 import Users from "./components/Users.jsx";
 
 const App = () => {
+  const [user, setUser] = useState({});
+
   return (
     <div className="app-main">
       <div className="left">
@@ -16,11 +19,9 @@ const App = () => {
         </p>
       </div>
       <div className="right">
-        {/* <p>hello world</p> */}
-        <Form />
+        <Form user={user} setUser={setUser} />
         <p className="right-arrow">{"----->"}</p>
-        <Users />
-        {/* <Count /> */}
+        <Users user={user} setUser={setUser} />
       </div>
     </div>
   );

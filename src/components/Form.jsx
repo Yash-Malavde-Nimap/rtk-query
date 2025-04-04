@@ -1,11 +1,21 @@
-import React, { useState } from "react";
-import { useAddUserMutation } from "../services/usersAPI";
+import React, { useState, useEffect } from "react";
+import { useAddUserMutation, useEditUserMutation } from "../services/usersAPI";
 import "./Form.css";
 
-const Form = () => {
+const Form = ({ user }) => {
   const [addUser] = useAddUserMutation();
+  const [editUser] = useEditUserMutation();
 
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    if (user && user.email) {
+      setFormData({ ...user, password: atob(user.password) });
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +35,26 @@ const Form = () => {
 
       if (formData.password.length >= 8) {
         await addUser(payload);
+        setFormData({ email: "", password: "" });
+        // window.location.reload();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleEdit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const payload = {
+        ...formData,
+        updatedAt: new Date().toISOString(),
+        password: btoa(formData.password),
+      };
+
+      if (formData.password.length >= 8) {
+        await editUser({ payload, id: formData.id });
         setFormData({ email: "", password: "" });
         window.location.reload();
       }
@@ -46,16 +76,22 @@ const Form = () => {
       />
       <input
         name="password"
-        type="password"
+        type="text"
         value={formData.password}
         onChange={handleChange}
         className="form-input"
         placeholder="Enter Password"
         autoComplete="off"
       />
-      <button onClick={handleSubmit} type="submit" className="form-button">
-        Submit
-      </button>
+      {user && user.id ? (
+        <button onClick={handleEdit} type="submit" className="form-button">
+          Edit
+        </button>
+      ) : (
+        <button onClick={handleSubmit} type="submit" className="form-button">
+          Submit
+        </button>
+      )}
     </form>
   );
 };

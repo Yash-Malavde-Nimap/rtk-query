@@ -5,10 +5,10 @@ import {
   useGetUsersQuery,
 } from "../services/usersAPI";
 
-const Users = () => {
+const Users = ({ setUser }) => {
   const { data, error, isLoading } = useGetUsersQuery();
   const [deleteUser] = useDeleteUserMutation();
-  // const userByID = useGetUserbyIDQuery();
+  // useGetUserbyIDQuery("1d8d");
 
   const handleDelete = async (id) => {
     try {
@@ -26,10 +26,8 @@ const Users = () => {
 
   const handleUser = async (id) => {
     try {
-      console.log(id);
-      // await getUserbyID(id);
-      // userByID(`${id}`);
-      // userByID("b26b");
+      const newUser = data.find((user) => user.id === id);
+      setUser(newUser);
     } catch (error) {
       console.log(error);
     }

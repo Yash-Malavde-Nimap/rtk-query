@@ -9,6 +9,7 @@ const usersAPI = createApi({
     // GETS ALL THE USERS
     getUsers: builder.query({
       query: () => "/users",
+      refetchInterval: "30000",
     }),
 
     // GET USER BY ID
@@ -21,6 +22,15 @@ const usersAPI = createApi({
       query: (payload) => ({
         url: `/users`,
         method: "POST",
+        body: JSON.stringify(payload),
+      }),
+    }),
+
+    // EDITS THE USER DETAILS
+    editUser: builder.mutation({
+      query: ({ payload, id }) => ({
+        url: `/users/${id}`,
+        method: "PUT",
         body: JSON.stringify(payload),
       }),
     }),
@@ -40,5 +50,6 @@ export const {
   useGetUserbyIDQuery,
   useAddUserMutation,
   useDeleteUserMutation,
+  useEditUserMutation,
 } = usersAPI;
 export default usersAPI;

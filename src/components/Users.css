@@ -3,6 +3,10 @@
   flex-direction: column;
   list-style: none;
   gap: 20px;
+  height: 20rem;
+  /* background: white; */
+  overflow-y: scroll;
+  padding: 0 2rem;
 }
 
 .list-item {
